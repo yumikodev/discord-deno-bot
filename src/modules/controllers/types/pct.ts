@@ -1,7 +1,6 @@
 // PCT -> Prefix Command Types
 
-import { Message } from "discord.js";
-import { Client } from "discord.js";
+import { Client, Message } from "discord.js";
 
 export interface Data {
   name: string;
@@ -12,5 +11,5 @@ export interface Data {
 export type Run<T = unknown> = (
   client: Client<true>,
   message: Message,
-  args: string[]
+  args: string[],
 ) => T;

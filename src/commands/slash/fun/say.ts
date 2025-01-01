@@ -2,7 +2,7 @@ import { SlashCommandBuilder } from "discord.js";
 import {
   CommandController,
   CommandType,
-} from "../../../modules/controllers/commands.ts";
+} from "@/modules/controllers/commands.ts";
 
 export default new CommandController(CommandType.Slash)
   .setData(
@@ -14,7 +14,7 @@ export default new CommandController(CommandType.Slash)
           .setName("content")
           .setDescription("El contenido del mensaje.")
           .setRequired(true)
-      )
+      ),
   )
   .setRun(async (int) => {
     try {

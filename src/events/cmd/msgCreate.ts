@@ -1,6 +1,6 @@
 import { ChannelType } from "discord.js";
-import { PREFIX } from "../../config.ts";
-import { EventController } from "../../modules/controllers/event.ts";
+import { PREFIX } from "@/config.ts";
+import { EventController } from "@/modules/controllers/event.ts";
 
 export default new EventController("messageCreate", async (message) => {
   if (message.channel.type === ChannelType.DM) return;
@@ -14,7 +14,7 @@ export default new EventController("messageCreate", async (message) => {
   const cmd = message.client.prefix.find(
     (c) =>
       c.data.name === command ||
-      (c.data.alias && c.data.alias.includes(`${command}`))
+      (c.data.alias && c.data.alias.includes(`${command}`)),
   );
 
   try {

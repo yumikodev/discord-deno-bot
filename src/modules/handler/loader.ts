@@ -1,18 +1,16 @@
 import { Client } from "discord.js";
-import { browseInFolders } from "./browse-in-folders.ts";
 import { join } from "node:path";
+import { browseInFolders } from "./browse-in-folders.ts";
 import { Handlers } from "./handlers.ts";
 import { builder } from "./builder.ts";
 
 export async function handlersLoader(client: Client) {
-  const { dirname } = import.meta;
-
   try {
     // Commands handler
     await browseInFolders(
-      join(dirname!, "../../commands"),
+      join(Deno.cwd(), "src/commands"),
       Handlers.prefixCommands(client),
-      Handlers.slashCommands(client)
+      Handlers.slashCommands(client),
     );
 
     // Slash Command Updater
@@ -20,8 +18,8 @@ export async function handlersLoader(client: Client) {
 
     // Event handler
     await browseInFolders(
-      join(dirname!, "../../events"),
-      Handlers.events(client)
+      join(Deno.cwd(), "src/events"),
+      Handlers.events(client),
     );
   } catch (e) {
     throw new Error(e);

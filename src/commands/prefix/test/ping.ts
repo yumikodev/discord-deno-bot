@@ -2,7 +2,7 @@ import { ChannelType } from "discord.js";
 import {
   CommandController,
   CommandType,
-} from "../../../modules/controllers/commands.ts";
+} from "@/modules/controllers/commands.ts";
 
 export default new CommandController(CommandType.Prefix)
   .setData({

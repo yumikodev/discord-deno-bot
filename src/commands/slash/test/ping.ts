@@ -2,13 +2,13 @@ import { SlashCommandBuilder } from "discord.js";
 import {
   CommandController,
   CommandType,
-} from "../../../modules/controllers/commands.ts";
+} from "@/modules/controllers/commands.ts";
 
 export default new CommandController(CommandType.Slash)
   .setData(
     new SlashCommandBuilder()
       .setName("ping")
-      .setDescription("Send a ping request.")
+      .setDescription("Send a ping request."),
   )
   .setRun(async (int) => {
     try {

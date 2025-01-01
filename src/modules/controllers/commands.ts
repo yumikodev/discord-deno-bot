@@ -23,13 +23,13 @@ export class CommandController<T extends CommandType> {
   }
 
   static isSlash(
-    command: CommandController<CommandType.Prefix | CommandType.Slash>
+    command: CommandController<CommandType.Prefix | CommandType.Slash>,
   ): command is CommandController<CommandType.Slash> {
     return command.type === CommandType.Slash;
   }
 
   static isPrefix(
-    command: CommandController<CommandType.Prefix | CommandType.Slash>
+    command: CommandController<CommandType.Prefix | CommandType.Slash>,
   ): command is CommandController<CommandType.Prefix> {
     return command.type === CommandType.Prefix;
   }

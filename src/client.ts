@@ -1,7 +1,7 @@
 import { Collection } from "discord.js";
 import { Client, GatewayIntentBits } from "discord.js";
-import { TOKEN } from "./config.ts";
-import { handlersLoader } from "./modules/handler/loader.ts";
+import { TOKEN } from "@/config.ts";
+import { handlersLoader } from "@/modules/handler/loader.ts";
 
 const client = new Client({
   intents: [

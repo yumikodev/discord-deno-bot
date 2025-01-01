@@ -2,7 +2,7 @@ import { ChannelType } from "discord.js";
 import {
   CommandController,
   CommandType,
-} from "../../../modules/controllers/commands.ts";
+} from "@/modules/controllers/commands.ts";
 
 export default new CommandController(CommandType.Prefix)
   .setData({
@@ -17,10 +17,11 @@ export default new CommandController(CommandType.Prefix)
       const txt = args.join(" ");
       await msg.delete();
 
-      if (!txt)
+      if (!txt) {
         return await msg.channel.send({
           content: "Tienes que poner el contenido.",
         });
+      }
 
       await msg.channel.send({ content: txt });
     } catch (err) {

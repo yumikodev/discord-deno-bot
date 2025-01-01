@@ -1,4 +1,4 @@
-import { EventController } from "../../modules/controllers/event.ts";
+import { EventController } from "@/modules/controllers/event.ts";
 
 export default new EventController("interactionCreate", async (int) => {
   if (!int.isChatInputCommand()) return;
@@ -9,11 +9,12 @@ export default new EventController("interactionCreate", async (int) => {
   try {
     await int.channel?.sendTyping();
 
-    if (!command)
+    if (!command) {
       return await int.reply({
         content: "An error has ocurred",
         ephemeral: true,
       });
+    }
 
     await command.run(int);
   } catch (err) {

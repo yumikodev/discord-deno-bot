@@ -1,7 +1,7 @@
 import { Collection } from "discord.js";
-import { CommandType } from "./modules/controllers/commands.ts";
-import { CommandController } from "./modules/controllers/commands.ts";
-import "./client.ts";
+import { CommandType } from "@/modules/controllers/commands.ts";
+import { CommandController } from "@/modules/controllers/commands.ts";
+import "@/client.ts";
 
 declare module "discord.js" {
   interface Client {

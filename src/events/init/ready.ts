@@ -1,9 +1,11 @@
-import { VERSION } from "../../config.ts";
-import { EventController } from "../../modules/controllers/event.ts";
-import { ActivityType, setPresence } from "../../modules/utils/presence.ts";
+import { VERSION } from "@/config.ts";
+import { EventController } from "@/modules/controllers/event.ts";
+import { Logger } from "@/modules/utils/logger.ts";
+import { ActivityType, setPresence } from "@/modules/utils/presence.ts";
 
 export default new EventController("ready", (client) => {
-  console.log(`${client.user.username} en linea!`);
+  const logger = new Logger("Ready");
+  logger.log(`${client.user.username} ready!`);
 
   setPresence(client, [
     {
